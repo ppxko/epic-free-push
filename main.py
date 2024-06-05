@@ -108,8 +108,8 @@ with open(path.join(path.dirname(__file__), '.env'), 'r') as file:
 
 
 
-    smtp_server = 'smtp.qq.com'
-    smtp_port = 587
+smtp_server = 'smtp.qq.com'
+smtp_port = 587
 
 # Create a message
 msg = MIMEMultipart()
@@ -117,6 +117,10 @@ msg['From'] = config['ADDRESS']
 msg['To'] = config['TOADDRESS']
 msg['Subject'] = subject
 msg.attach(mail_content)
+
+print(config['ADDRESS'])
+print(config['CODE'])
+print(config['TOADDRESS'])
 
 # Connect to SMTP server
 server = smtplib.SMTP(smtp_server, smtp_port)

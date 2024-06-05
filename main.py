@@ -118,10 +118,6 @@ msg['To'] = config['TOADDRESS']
 msg['Subject'] = subject
 msg.attach(mail_content)
 
-print(config['ADDRESS'])
-print(config['CODE'])
-print(config['TOADDRESS'])
-
 # Connect to SMTP server
 server = smtplib.SMTP(smtp_server, smtp_port)
 server.starttls()

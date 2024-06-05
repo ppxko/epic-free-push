@@ -9,7 +9,7 @@ jobs:
   run:
     name: Run Python script
     runs-on: ubuntu-latest
-    using: 'node20'
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

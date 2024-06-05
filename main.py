@@ -109,7 +109,11 @@ with open(path.join(path.dirname(__file__), '.env'), 'r') as file:
 
 
 smtp_server = 'smtp.163.com'
-smtp_port = 465
+smtp_port = 25
+
+
+#smtp_server = 'smtp.qq.com'
+#smtp_port = 587
 
 # Create a message
 msg = MIMEMultipart()

@@ -105,16 +105,13 @@ with open(path.join(path.dirname(__file__), '.env'), 'r') as file:
         key, value = line.strip().split('=')
         config[key] = value
 
-#  smtp_server = 'smtp.qq.com'
-#  smtp_port = 587
-
-smtp_server = 'smtp.office365.com'
-smtp_port = 587
+    smtp_server = 'smtp.qq.com'
+    smtp_port = 587
 
 # Create a message
 msg = MIMEMultipart()
 msg['From'] = config['ADDRESS']
-msg['To'] = config['ADDRESS']
+msg['To'] = config['TOADDRESS']
 msg['Subject'] = subject
 msg.attach(mail_content)
 
@@ -124,7 +121,7 @@ server.starttls()
 server.login(config['ADDRESS'], config['CODE'])
 
 # Send the email
-server.sendmail(config['ADDRESS'], config['ADDRESS'], msg.as_string())
+server.sendmail(config['ADDRESS'], config['TOADDRESS'], msg.as_string())
 
 # Close the SMTP connection
 server.quit()

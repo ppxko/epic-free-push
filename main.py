@@ -153,7 +153,7 @@ headers = {
     
 response = requests.post(url, headers=headers, data=json.dumps(payload))
 if response.status_code == 200:
-     print( "消息发送成功")
+     print( "微信推送成功")
 else:
     print( f"消息发送失败。状态码: {response.status_code}, 响应: {response.text}")
 

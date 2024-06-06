@@ -135,13 +135,17 @@ server.sendmail(config['ADDRESS'], 'darkak@163.com', msg.as_string())
 # Close the SMTP connection
 server.quit()
 
+
+
+# 提取 HTML 内容
+html_content = mail_content.get_payload(decode=True).decode('utf-8')
 msg['PUSH_TOEKN'] = config['PUSH_TOEKN']
 url = "https://www.pushplus.plus/send/"
 payload = {
         "token": msg['PUSH_TOEKN'] ,
         "title": 'Epic喜加一游戏推送',
-          "template":"html",
-        "content": mail_content
+        "template":"html",
+        "content": html_content
 }
 headers = {
         'Content-Type': 'application/json'

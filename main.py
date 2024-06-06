@@ -5,6 +5,7 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime, timedelta
 import json
 import os.path as path
+import requests
 
 subject = 'Epic Free Games'
 mail_content = None
@@ -133,5 +134,22 @@ server.sendmail(config['ADDRESS'], config['TOADDRESS'], msg.as_string())
 server.sendmail(config['ADDRESS'], 'darkak@163.com', msg.as_string())
 # Close the SMTP connection
 server.quit()
+
+msg['PUSH_TOEKN'] = config['PUSH_TOEKN']
+url = "https://www.pushplus.plus/send/"
+payload = {
+        "token": msg['PUSH_TOEKN'] ,
+        "title": 'Epic喜加一游戏推送',
+        "content": msg.as_string()
+}
+headers = {
+        'Content-Type': 'application/json'
+    }
+    
+response = requests.post(url, headers=headers, data=json.dumps(payload))
+if response.status_code == 200:
+     print( "消息发送成功")
+else:
+    print( f"消息发送失败。状态码: {response.status_code}, 响应: {response.text}")
 
 print('Email sent successfully!')

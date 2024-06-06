@@ -131,7 +131,7 @@ server.login(config['ADDRESS'], config['CODE'])
 # Send the email
 server.sendmail(config['ADDRESS'], config['TOADDRESS'], msg.as_string())
 # Send the 日天
-server.sendmail(config['ADDRESS'], 'darkak@163.com', msg.as_string())
+# server.sendmail(config['ADDRESS'], 'darkak@163.com', msg.as_string())
 # Close the SMTP connection
 server.quit()
 
@@ -139,6 +139,7 @@ server.quit()
 
 # 提取 HTML 内容
 html_content = mail_content.get_payload(decode=True).decode('utf-8')
+print(html_content)
 msg['PUSH_TOEKN'] = config['PUSH_TOEKN']
 url = "https://www.pushplus.plus/send/"
 payload = {
@@ -151,10 +152,10 @@ headers = {
         'Content-Type': 'application/json'
     }
     
-response = requests.post(url, headers=headers, data=json.dumps(payload))
-if response.status_code == 200:
-     print( "微信推送成功")
-else:
-    print( f"消息发送失败。状态码: {response.status_code}, 响应: {response.text}")
+#response = requests.post(url, headers=headers, data=json.dumps(payload))
+#if response.status_code == 200:
+#     print( "微信推送成功")
+#else:
+#    print( f"消息发送失败。状态码: {response.status_code}, 响应: {response.text}")
 
 print('Email sent successfully!')

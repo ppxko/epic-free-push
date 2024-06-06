@@ -140,7 +140,8 @@ url = "https://www.pushplus.plus/send/"
 payload = {
         "token": msg['PUSH_TOEKN'] ,
         "title": 'Epic喜加一游戏推送',
-        "content": msg.as_string()
+          "template":"html",
+        "content": mail_content
 }
 headers = {
         'Content-Type': 'application/json'

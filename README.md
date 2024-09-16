@@ -6,10 +6,10 @@ automatic Email notification for epic free games.
 
 ## actions 三个secret
 ### ENV_VARS:
-ADDRESS=xxx@example.com
-CODE=xxxxxxxxxxxx        gist token
-TOADDRESS=xxx@example.com   
-PUSH_TOEKN=xxxxxxxxxxxx  wechat
+- ADDRESS=xxx@example.com
+- CODE=xxxxxxxxxxxx        gist token
+- TOADDRESS=xxx@example.com   
+- PUSH_TOEKN=xxxxxxxxxxxx  wechat
 
 ### GH_TOKEN:
 访问github的token
